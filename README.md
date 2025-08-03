@@ -8,7 +8,19 @@ There is a korean version: [korean version](./README-ko.md)
 
 ## 🚀 Quick Start
 
-### 1. Identify Your Business Type
+### 1. Choose Your Marketing Team Approach
+
+The BMAD framework provides **AI-powered marketing agents** that work as an integrated team:
+
+```bash
+# Activate marketing agents individually
+@brand-marketer    # Sofia - Brand Marketing Strategist 🎨
+@media-buyer       # Marcus - Performance Marketing Specialist 📊
+@marketing-analyst # Elena - Marketing Data Analyst 📈
+@marketing-designer # Maya - Creative Marketing Designer 🎨
+```
+
+### 2. Identify Your Business Type
 
 Use our business type analysis to determine your configuration:
 
@@ -24,44 +36,169 @@ cat config/business_types.yaml
 - How long is your typical sales cycle?
 - What are your most important conversion events?
 
-### 2. Set Up Your Team
+### 3. Start with Your Marketing Team
 
-Assign team members to the four core BMAD roles:
+The four AI agents work together as an integrated marketing team:
 
-| Role                                     | Responsibilities                                    | Key Skills                                                 |
-| ---------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------- |
-| **Brand Marketer (B)**                   | Brand strategy, content marketing, customer journey | Strategic thinking, storytelling, brand management         |
-| **Media Buyer/Performance Marketer (M)** | Paid campaigns, budget optimization, ROI/ROAS       | Analytical skills, platform expertise, data interpretation |
-| **Analyst (A)**                          | Data analysis, reporting, forecasting, integration  | Technical skills, statistical analysis, data visualization |
-| **Designer (D)**                         | Visual assets, A/B testing, UX optimization         | Design skills, user experience, creative testing           |
+| Agent                 | Name      | Role                             | Primary Commands                                               |
+| --------------------- | --------- | -------------------------------- | -------------------------------------------------------------- |
+| `@brand-marketer`     | Sofia 🎨  | Brand Marketing Strategist       | `*brand-strategy`, `*content-calendar`, `*brand-launch`        |
+| `@media-buyer`        | Marcus 📊 | Performance Marketing Specialist | `*campaign-plan`, `*campaign-optimize`, `*audience-analysis`   |
+| `@marketing-analyst`  | Elena 📈  | Marketing Data Analyst           | `*analytics-report`, `*data-analysis`, `*attribution-modeling` |
+| `@marketing-designer` | Maya 🎨   | Creative Marketing Designer      | `*design-brief`, `*creative-review`, `*asset-optimization`     |
 
-### 3. Configure Your Data Sources
+## 🤖 Marketing Agents Guide
 
-Set up integrations based on your business type:
+### 🎨 Brand Marketing Strategist (@brand-marketer)
+
+**Sofia** helps with brand strategy, content marketing, and customer journey design.
+
+**Key Commands:**
+
+- `*brand-strategy` - Develop comprehensive brand positioning and messaging
+- `*brand-analysis` - Analyze current brand perception and competitive landscape
+- `*content-calendar` - Create strategic content planning aligned with objectives
+- `*brand-launch` - Execute systematic brand launch process
+- `*competitive-research` - Deep competitive analysis for positioning
+
+**Example Usage:**
 
 ```bash
-# Review integration requirements for your business type
-python scripts/test_ga4_integration.py
-python scripts/supermetrics_pipeline.py
+@brand-marketer
+*brand-strategy SaaS B2B "enterprise security software"
+
+# 브랜드 전략을 개발해 주세요 (Korean example)
+@brand-marketer
+*brand-strategy
 ```
 
-### 4. Start with a Workflow
+### 📊 Performance Marketing Specialist (@media-buyer)
 
-Choose your approach:
+**Marcus** optimizes paid campaigns, manages budgets, and improves ROAS.
 
-- **Greenfield**: New product launches, market expansion
-- **Brownfield**: Existing campaign optimization, performance improvement
+**Key Commands:**
+
+- `*campaign-plan` - Develop comprehensive paid advertising strategy
+- `*campaign-optimize` - Analyze and optimize existing campaign performance
+- `*audience-analysis` - Research and develop target audience segments
+- `*attribution-setup` - Implement tracking and attribution modeling
+- `*budget-planning` - Create strategic budget allocation plans
+
+**Example Usage:**
+
+```bash
+@media-buyer
+*campaign-plan "Q4 Holiday Campaign" ecommerce 50000 "increase_sales"
+
+# Facebook 캠페인을 최적화해 주세요 (Korean example)
+@media-buyer
+*campaign-optimize
+```
+
+### 📈 Marketing Data Analyst (@marketing-analyst)
+
+**Elena** transforms data into actionable insights and builds performance dashboards.
+
+**Key Commands:**
+
+- `*analytics-report` - Generate comprehensive marketing performance reports
+- `*data-analysis` - Conduct deep-dive analysis on specific questions
+- `*attribution-modeling` - Build and optimize attribution models
+- `*dashboard-setup` - Design and implement performance dashboards
+- `*predictive-analysis` - Create forecasting models for key metrics
+
+**Example Usage:**
+
+```bash
+@marketing-analyst
+*analytics-report "monthly" "Q3_2024" "saas_b2b"
+
+# ROI 분석 리포트를 만들어 주세요 (Korean example)
+@marketing-analyst
+*analytics-report
+```
+
+### 🎨 Creative Marketing Designer (@marketing-designer)
+
+**Maya** creates high-converting creative assets and optimizes visual performance.
+
+**Key Commands:**
+
+- `*design-brief` - Create comprehensive design briefs for projects
+- `*creative-review` - Systematic review of creative assets for optimization
+- `*design-system` - Develop brand-consistent design systems
+- `*creative-testing` - Design and analyze A/B test variations
+- `*asset-optimization` - Optimize existing creative assets for performance
+
+**Example Usage:**
+
+```bash
+@marketing-designer
+*design-brief "Facebook Ads" "Holiday Campaign" "ecommerce"
+
+# 광고 크리에이티브를 디자인해 주세요 (Korean example)
+@marketing-designer
+*design-brief
+```
+
+## 🔄 Team Collaboration Workflows
+
+### Integrated Marketing Campaign Example
+
+```bash
+# 1. Brand Strategy (Sofia)
+@brand-marketer
+*brand-strategy "New Product Launch" "SaaS B2B"
+
+# 2. Campaign Planning (Marcus)
+@media-buyer
+*campaign-plan "Product Launch Campaign" saas_b2b 25000 "generate_leads"
+
+# 3. Creative Development (Maya)
+@marketing-designer
+*design-brief "Landing Page" "Product Launch" "saas_b2b"
+
+# 4. Performance Setup (Elena)
+@marketing-analyst
+*attribution-setup "saas_b2b" "trial_signup,demo_request" "first_touch"
+
+# 5. Campaign Launch & Optimization Loop
+@media-buyer
+*campaign-optimize "launch_campaign" "week_1" "improve_cac"
+
+@marketing-analyst
+*analytics-report "weekly" "campaign_week_1" "saas_b2b"
+```
+
+### Cross-Agent Communication
+
+The agents are designed to work together:
+
+- **Brand → Media**: Sofia provides messaging that Marcus uses in campaigns
+- **Media → Analyst**: Marcus shares performance data that Elena analyzes
+- **Analyst → Designer**: Elena provides insights that Maya uses for optimization
+- **Designer → Media**: Maya creates assets that Marcus tests and optimizes
 
 ## 📋 Project Structure
 
 ```
 BMAD-for-marketing/
+├── .bmad-core/                  # Hidden agent system
+│   ├── agents/                  # AI marketing team agents
+│   │   ├── brand-marketer.md    # Sofia - Brand strategist
+│   │   ├── media-buyer.md       # Marcus - Performance marketer
+│   │   ├── marketing-analyst.md # Elena - Data analyst
+│   │   └── marketing-designer.md # Maya - Creative designer
+│   ├── tasks/                   # Agent task definitions
+│   ├── templates/               # Document templates
+│   ├── checklists/             # Quality assurance
+│   └── data/                   # Shared data resources
 ├── docs/
-│   ├── prd.md                     # Product Requirements Document
-│   ├── epics/                     # Epic definitions
-│   ├── stories/                   # User stories
-│   ├── workflows/                 # Process documentation
-│   └── project-planning/          # Planning artifacts
+│   ├── prd.md                  # Product Requirements Document
+│   ├── epics/                  # Epic definitions
+│   ├── stories/                # User stories
+│   ├── workflows/              # Process documentation
+│   └── project-planning/       # Planning artifacts
 ├── scripts/
 │   ├── test_ga4_integration.py    # GA4 API testing
 │   ├── supermetrics_pipeline.py   # Data consolidation
@@ -80,24 +217,49 @@ BMAD-for-marketing/
 
 ### Phase 1: Foundation (Weeks 1-4)
 
-**Goal**: Establish team structure and basic workflows
+**Goal**: Set up your AI marketing team and basic workflows
 
-1. **Business Context Assessment** (Week 1)
+1. **Team Setup** (Week 1)
+
+   ```bash
+   # Test your marketing agents
+   @brand-marketer
+   *help
+
+   @media-buyer
+   *help
+
+   @marketing-analyst
+   *help
+
+   @marketing-designer
+   *help
+   ```
+
+2. **Business Context Assessment** (Week 2)
 
    ```bash
    # Use our kickoff materials
    open docs/project-planning/kickoff-presentation.md
    open docs/project-planning/role-assignments.md
+
+   # Let Sofia help with brand analysis
+   @brand-marketer
+   *brand-analysis "YourCompany" "saas_b2b" "competitive_analysis"
    ```
 
-2. **Data Integration Planning** (Week 2)
+3. **Data Integration Planning** (Week 3)
 
    ```bash
    # Review integration strategy
    open docs/project-planning/data-integration-plan.md
+
+   # Set up tracking with Elena
+   @marketing-analyst
+   *attribution-setup
    ```
 
-3. **Workflow Documentation** (Week 3-4)
+4. **Workflow Documentation** (Week 4)
    ```bash
    # Study the workflows
    open docs/workflows/Greenfield-Workflow.md
@@ -107,127 +269,125 @@ BMAD-for-marketing/
 
 ### Phase 2: Integration (Weeks 5-8)
 
-**Goal**: Connect data sources and test workflows
+**Goal**: Connect data sources and test agent workflows
 
-1. **GA4 Integration Testing**
+1. **Campaign Planning with Marcus**
 
    ```bash
-   # Set up environment variables
-   export GA4_PROPERTY_ID="your-property-id"
-   export GA4_CREDENTIALS_PATH="path/to/credentials.json"
-
-   # Test the connection
-   python scripts/test_ga4_integration.py
+   @media-buyer
+   *campaign-plan "Test Campaign" "your_business_type" 5000 "test_tracking"
    ```
 
-2. **Supermetrics Pipeline Setup**
+2. **Creative Development with Maya**
 
    ```bash
-   # Configure API credentials
-   export SUPERMETRICS_API_KEY="your-api-key"
-   export SUPERMETRICS_QUERY_ID="your-query-id"
-
-   # Run the pipeline
-   python scripts/supermetrics_pipeline.py
+   @marketing-designer
+   *design-brief "Test Ads" "Test Campaign" "your_business_type"
    ```
 
-3. **Cross-role Workflow Testing**
+3. **Performance Monitoring with Elena**
    ```bash
-   # Follow the test plan
-   open docs/project-planning/workflow-test-plan.md
+   @marketing-analyst
+   *dashboard-setup "marketing_team" "cac,roas,conversion_rate" "daily"
    ```
 
 ### Phase 3: Optimization (Weeks 9-12)
 
-**Goal**: Implement AI-driven insights and automation
+**Goal**: Implement AI-driven insights and optimization
 
-1. **AI Insight Generation**
+1. **Performance Analysis Loop**
 
    ```bash
-   # Generate insights from your data
-   python scripts/generate_insights.py
+   # Weekly performance review
+   @marketing-analyst
+   *analytics-report "weekly" "current_week" "your_business_type"
 
-   # Review generated insights
-   cat generated_insights.json
+   # Campaign optimization
+   @media-buyer
+   *campaign-optimize "current_campaigns" "weekly" "improve_roas"
+
+   # Creative optimization
+   @marketing-designer
+   *asset-optimization "current_creatives" "performance_data" "increase_ctr"
    ```
 
-2. **Automated Reporting**
+2. **Brand Development**
 
    ```bash
-   # Set up weekly reporting
-   python scripts/automated_reporter.py
-
-   # Check the generated report
-   open weekly_report.html
+   # Content strategy development
+   @brand-marketer
+   *content-calendar "monthly" "your_business_type" "awareness,consideration,conversion"
    ```
 
-3. **Predictive Model Training**
+3. **Predictive Analytics**
    ```bash
-   # Train your first model
-   jupyter notebook notebooks/train_predictive_model.ipynb
+   # Advanced forecasting
+   @marketing-analyst
+   *predictive-analysis "lead_generation" "30_days" "spend,seasonality,competition"
    ```
 
 ### Phase 4: Scaling (Weeks 13-16)
 
 **Goal**: Expand capabilities and establish continuous improvement
 
-1. **Multi-Business Type Support**
+1. **Advanced Campaign Management**
 
    ```bash
-   # Test with different business types
-   python scripts/advanced_automation.py
+   # Multi-channel strategy
+   @media-buyer
+   *channel-strategy "omnichannel" "facebook,google,linkedin" "enterprise_b2b"
    ```
 
-2. **Predictive Analytics API**
+2. **Comprehensive Brand Building**
 
    ```bash
-   # Start the prediction service
-   python scripts/prediction_api.py
-
-   # Test the API
-   curl -X POST http://localhost:5000/predict \
-     -H "Content-Type: application/json" \
-     -d '{"spend": 100, "ctr": 0.02}'
+   # Brand system development
+   @brand-marketer
+   *story-framework "customer_journey" "enterprise_personas" "thought_leadership"
    ```
 
-3. **Continuous Improvement Process**
+3. **Design System Scaling**
+
    ```bash
-   # Review the improvement framework
-   open docs/project-planning/continuous-improvement-process.md
+   # Scalable creative system
+   @marketing-designer
+   *design-system "YourBrand" "saas_b2b" "web,mobile,social,email"
    ```
 
 ## 🎯 Business Type Quick Setup
 
 ### For SaaS B2B Companies
 
-```yaml
-# Your focus metrics
-- Monthly Recurring Revenue (MRR)
-- Customer Acquisition Cost (CAC)
-- Customer Lifetime Value (CLV)
-- Churn Rate
+```bash
+# Quick setup for SaaS B2B
+@brand-marketer
+*brand-strategy "YourSaaS" "enterprise_software" "saas_b2b"
 
-# Required integrations
-- Google Analytics 4
-- CRM (Salesforce, HubSpot)
-- Marketing automation platform
-- Product analytics (Mixpanel, Amplitude)
+@media-buyer
+*campaign-plan "Lead Generation" "saas_b2b" 20000 "demo_requests"
+
+@marketing-analyst
+*attribution-setup "saas_b2b" "trial_signup,demo_request,purchase" "multi_touch"
+
+@marketing-designer
+*design-brief "Landing Pages" "Lead Gen Campaign" "saas_b2b"
 ```
 
 ### For E-commerce Companies
 
-```yaml
-# Your focus metrics
-- Return on Ad Spend (ROAS)
-- Average Order Value (AOV)
-- Conversion Rate
-- Cart Abandonment Rate
+```bash
+# Quick setup for E-commerce
+@brand-marketer
+*brand-analysis "YourStore" "ecommerce" "brand_positioning"
 
-# Required integrations
-- Google Analytics 4 Enhanced Ecommerce
-- Shopify/WooCommerce
-- Email marketing platforms
-- Social media advertising
+@media-buyer
+*campaign-plan "Holiday Sales" "ecommerce" 50000 "purchase_conversions"
+
+@marketing-analyst
+*dashboard-setup "ecommerce_team" "roas,aov,conversion_rate,cart_abandonment" "realtime"
+
+@marketing-designer
+*creative-testing "product_ads" "current_creatives" "holiday_budget"
 ```
 
 ### For Other Business Types
@@ -241,43 +401,61 @@ Refer to `config/business_types.yaml` for complete configurations including:
 - Local businesses
 - Education & training
 
-## 🔧 Advanced Features
+## 🔧 Advanced Team Features
 
-### Smart Budget Allocation
+### Korean Language Support
 
-The framework can automatically suggest budget reallocations based on performance:
-
-```bash
-# Run advanced automation
-python scripts/advanced_automation.py
-```
-
-### Predictive Analytics
-
-Deploy ML models to forecast key metrics:
+All marketing agents support Korean interactions:
 
 ```bash
-# Start the prediction API
-python scripts/prediction_api.py
+# Korean example - 브랜드 전략 개발
+@brand-marketer
+새로운 제품의 브랜드 전략을 만들어 주세요
 
-# Make predictions
-curl -X POST http://localhost:5000/predict \
-  -H "Content-Type: application/json" \
-  -d '{"spend": 250, "ctr": 0.025}'
+# Korean example - 캠페인 최적화
+@media-buyer
+Facebook 광고 성과가 좋지 않아요. 최적화 방법을 알려주세요
+
+# Korean example - 데이터 분석
+@marketing-analyst
+지난 달 마케팅 성과를 분석해 주세요
+
+# Korean example - 디자인 개선
+@marketing-designer
+현재 광고 크리에이티브의 성과를 개선하고 싶어요
 ```
 
-### Multi-language Support
+### Agent Collaboration Patterns
 
-The framework supports Korean language interactions. When team members communicate in Korean, AI agents will respond in Korean.
+**Campaign Launch Pattern:**
+
+```bash
+# 1. Strategy → 2. Planning → 3. Creative → 4. Analytics → 5. Optimization
+@brand-marketer → @media-buyer → @marketing-designer → @marketing-analyst → @media-buyer
+```
+
+**Optimization Pattern:**
+
+```bash
+# 1. Analysis → 2. Insights → 3. Creative → 4. Testing → 5. Scaling
+@marketing-analyst → @media-buyer → @marketing-designer → @media-buyer → @brand-marketer
+```
+
+**Brand Development Pattern:**
+
+```bash
+# 1. Brand Strategy → 2. Content → 3. Creative System → 4. Performance
+@brand-marketer → @brand-marketer → @marketing-designer → @marketing-analyst
+```
 
 ## 📊 Key Performance Indicators
 
-### Team Performance Metrics
+### Agent-Specific Metrics
 
-- **Brand Marketer**: Brand awareness lift, content engagement rates
-- **Media Buyer**: CAC reduction, ROAS improvement, attribution accuracy
-- **Analyst**: Data accuracy rate, insight implementation rate, forecast accuracy
-- **Designer**: Creative performance improvement, A/B test win rate
+- **Sofia (Brand)**: Brand awareness lift, content engagement rates, brand sentiment improvement
+- **Marcus (Media)**: CAC reduction, ROAS improvement, attribution accuracy, budget efficiency
+- **Elena (Analyst)**: Data accuracy rate, insight implementation rate, forecast accuracy
+- **Maya (Designer)**: Creative performance improvement, A/B test win rate, conversion rate optimization
 
 ### Business Impact Metrics
 
@@ -285,44 +463,101 @@ The framework supports Korean language interactions. When team members communica
 - Customer acquisition cost reduction
 - Customer lifetime value increase
 - Revenue attribution accuracy
+- Campaign launch speed improvement
+- Cross-team collaboration efficiency
 
-## 🤖 AI-Powered Prompts
+## 🤖 Agent Command Reference
 
-Each role has access to specialized AI prompts. Examples:
+### Complete Command List
 
-### Brand Marketer
+**Brand Marketer (@brand-marketer) - Sofia 🎨**
 
+```bash
+*brand-analysis      # Comprehensive brand analysis
+*brand-strategy      # Brand positioning and messaging
+*content-calendar    # Strategic content planning
+*brand-launch        # Brand launch execution
+*competitive-research # Competitive analysis
+*content-strategy    # Content strategy development
+*brand-audit        # Brand audit and assessment
+*voice-tone         # Brand voice guidelines
+*story-framework    # Brand storytelling
+*social-strategy    # Social media strategy
+*brand-metrics      # Brand performance tracking
 ```
-"Analyze current brand perception data from [Source] and provide three recommendations for our positioning strategy as a [Business Type] targeting [Target Market]."
+
+**Media Buyer (@media-buyer) - Marcus 📊**
+
+```bash
+*campaign-plan      # Campaign strategy development
+*campaign-optimize  # Performance optimization
+*audience-analysis  # Audience research and targeting
+*creative-testing   # A/B testing setup
+*attribution-setup  # Tracking implementation
+*budget-planning    # Budget allocation strategy
+*channel-strategy   # Multi-channel planning
+*bid-optimization   # Bidding strategy optimization
+*conversion-audit   # Conversion tracking audit
+*competitor-analysis # Competitive advertising analysis
+*performance-report # Performance reporting
 ```
 
-### Media Buyer
+**Marketing Analyst (@marketing-analyst) - Elena 📈**
 
-```
-"Given a target CAC of $[Target] for a [Business Type], analyze our current ad spend and recommend budget reallocation to optimize for this goal."
+```bash
+*analytics-report   # Comprehensive reporting
+*data-analysis      # Deep-dive analysis
+*attribution-modeling # Attribution model development
+*predictive-analysis # Forecasting and prediction
+*dashboard-setup    # Performance dashboard creation
+*customer-segmentation # Customer analysis
+*cohort-analysis    # Retention analysis
+*ab-test-analysis   # Statistical test analysis
+*funnel-analysis    # Conversion funnel optimization
+*roi-analysis       # ROI measurement
+*competitive-analysis # Market analysis
+*data-integration   # Data source integration
 ```
 
-### Analyst
+**Marketing Designer (@marketing-designer) - Maya 🎨**
 
-```
-"Analyze our GA4 data for the last quarter and identify the top 3 traffic sources that lead to conversions."
-```
-
-### Designer
-
-```
-"Create two new design variations for an ad creative to A/B test on [Platform]. The current CTR is [Current CTR]."
+```bash
+*design-brief       # Creative project planning
+*creative-review    # Asset review and optimization
+*design-system      # Design system development
+*creative-testing   # Design A/B testing
+*asset-optimization # Creative performance optimization
+*create-creative    # Creative asset development
+*landing-page-design # Landing page optimization
+*brand-assets       # Brand material creation
+*email-design       # Email template design
+*social-media-design # Social creative development
+*ad-creative        # Advertising creative design
+*mobile-optimization # Mobile design optimization
 ```
 
 ## 🔄 Workflows
 
 ### Greenfield Workflow (New Initiatives)
 
-1. **Business Context Analysis** → 2. **Market Research** → 3. **Brand Strategy** → 4. **Channel Strategy** → 5. **Creative Development** → 6. **Campaign Launch** → 7. **Performance Monitoring** → 8. **Optimization Loop**
+1. **Brand Foundation** (`@brand-marketer *brand-strategy`)
+2. **Market Research** (`@marketing-analyst *competitive-analysis`)
+3. **Campaign Strategy** (`@media-buyer *campaign-plan`)
+4. **Creative Development** (`@marketing-designer *design-brief`)
+5. **Performance Setup** (`@marketing-analyst *attribution-setup`)
+6. **Campaign Launch** (`@media-buyer *campaign-plan`)
+7. **Performance Monitoring** (`@marketing-analyst *analytics-report`)
+8. **Optimization Loop** (All agents collaborating)
 
 ### Brownfield Workflow (Optimization)
 
-1. **Current State Analysis** → 2. **Performance Gap Identification** → 3. **Optimization Hypothesis** → 4. **Test Planning & Execution** → 5. **Results Analysis** → 6. **Implementation & Scaling** → 7. **Continuous Monitoring**
+1. **Performance Analysis** (`@marketing-analyst *analytics-report`)
+2. **Gap Identification** (`@media-buyer *campaign-optimize`)
+3. **Creative Optimization** (`@marketing-designer *asset-optimization`)
+4. **Testing Strategy** (`@marketing-designer *creative-testing`)
+5. **Implementation** (`@media-buyer *campaign-optimize`)
+6. **Results Analysis** (`@marketing-analyst *data-analysis`)
+7. **Scaling Strategy** (`@brand-marketer *brand-metrics`)
 
 ## 📝 Documentation
 
@@ -333,6 +568,13 @@ Each role has access to specialized AI prompts. Examples:
 - **[Prompt Library](docs/workflows/Prompt-Library.md)**: Role-specific AI prompts
 - **[Business Types](config/business_types.yaml)**: Configuration for different business models
 
+### Agent Documentation
+
+- **[Agent Guide](.bmad-core/agents/)**: Individual agent definitions and capabilities
+- **[Task Library](.bmad-core/tasks/)**: Executable workflows and methodologies
+- **[Template Library](.bmad-core/templates/)**: Document and planning templates
+- **[Checklist Library](.bmad-core/checklists/)**: Quality assurance and review processes
+
 ### Planning Materials
 
 - **[Kickoff Presentation](docs/project-planning/kickoff-presentation.md)**: Project introduction
@@ -342,9 +584,45 @@ Each role has access to specialized AI prompts. Examples:
 
 ## 🚨 Troubleshooting
 
-### Common Issues
+### Agent Issues
 
-**GA4 Integration Fails**
+**Agent Not Responding**
+
+```bash
+# Check agent activation
+@brand-marketer
+*help
+
+# Try exit and reactivate
+@brand-marketer
+*exit
+@brand-marketer
+```
+
+**Korean Language Issues**
+
+```bash
+# Agents automatically detect Korean and respond in Korean
+# Test with simple Korean greeting
+@brand-marketer
+안녕하세요
+```
+
+**Command Not Found**
+
+```bash
+# Check available commands
+@media-buyer
+*help
+
+# Use flexible command matching
+@media-buyer
+캠페인 최적화 도움이 필요해요
+```
+
+### Technical Issues
+
+**Data Integration Fails**
 
 ```bash
 # Check credentials
@@ -354,22 +632,13 @@ ls -la path/to/your/credentials.json
 echo $GA4_PROPERTY_ID
 ```
 
-**Supermetrics Pipeline Errors**
+**Performance Issues**
 
 ```bash
-# Check API key
-echo $SUPERMETRICS_API_KEY
-
-# Review error logs in the script output
-```
-
-**Model Training Issues**
-
-```bash
-# Install required packages
-pip install pandas scikit-learn joblib
-
-# Check data format in the notebook
+# Check system resources
+# Ensure only necessary agents are active
+@agent-name
+*exit
 ```
 
 ## 🤝 Contributing
@@ -377,16 +646,16 @@ pip install pandas scikit-learn joblib
 ### Continuous Improvement Process
 
 1. Submit improvement ideas to the backlog
-2. Monthly retrospectives and reviews
+2. Monthly retrospectives with AI marketing team
 3. Quarterly strategic assessments
 4. Implementation and measurement cycles
 
-### Adding New Business Types
+### Adding New Marketing Capabilities
 
-1. Study the `business_type_analysis` framework
-2. Define primary metrics and integrations
-3. Create role-specific prompts
-4. Test with your use case
+1. Study existing agent patterns in `.bmad-core/agents/`
+2. Create new tasks in `.bmad-core/tasks/`
+3. Add templates in `.bmad-core/templates/`
+4. Test with your marketing use case
 5. Submit as an improvement
 
 ## 📞 Support
@@ -394,19 +663,21 @@ pip install pandas scikit-learn joblib
 ### Team Communication
 
 - **Primary Channel**: Slack `#bmad-marketing-project`
-- **Documentation**: `docs/` directory
+- **Agent Support**: Use `*help` command with any agent
+- **Documentation**: `docs/` directory and `.bmad-core/` system
 - **Meetings**: Scheduled via calendar with notes in `docs/project-planning`
 
 ### Best Practices
 
-- Follow the documented workflows
-- Use role-specific prompts consistently
-- Review analytics weekly
-- Conduct monthly retrospectives
-- Maintain documentation updates
+- Start each session by activating the agents you need
+- Use `*help` to see available commands for each agent
+- Leverage Korean language support for Korean-speaking team members
+- Follow documented workflows for complex marketing projects
+- Conduct regular performance reviews with Elena (`@marketing-analyst`)
+- Maintain brand consistency through Sofia (`@brand-marketer`)
 
 ---
 
-**Built with the BMAD Method** | **Version 1.0** | **Ready for Production**
+**Built with the BMAD Method** | **Version 2.0** | **AI Marketing Team Ready**
 
-> Transform your marketing operations with AI-driven intelligence and proven collaborative frameworks.
+> Transform your marketing operations with AI-powered team collaboration and proven strategic frameworks.
