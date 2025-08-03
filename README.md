@@ -2,7 +2,7 @@
 
 > **AI-driven marketing automation system that applies software development methodologies to marketing operations**
 
-The BMAD (Brand, Media, Analyst, Designer) Framework enables data-driven marketing decisions through intelligent automation and cross-functional collaboration, supporting both Greenfield (new initiatives) and Brownfield (optimization) marketing scenarios.
+The BMAD (https://github.com/bmadcode/BMAD-METHOD) Framework enables data-driven marketing decisions through intelligent automation and cross-functional collaboration, supporting both Greenfield (new initiatives) and Brownfield (optimization) marketing scenarios.
 
 There is a korean version: [korean version](./README-ko.md)
 
