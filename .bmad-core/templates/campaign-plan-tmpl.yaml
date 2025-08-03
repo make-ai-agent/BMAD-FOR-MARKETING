@@ -1,0 +1,243 @@
+template:
+  id: campaign-plan-template-v1
+  name: Marketing Campaign Plan
+  version: 1.0
+  output:
+    format: markdown
+    filename: campaign-plan.md
+    title: "{{campaign_name}} Campaign Plan"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: campaign-overview
+    title: Campaign Overview
+    instruction: |
+      Define the core elements of the marketing campaign including objectives, 
+      target audience, and high-level strategy.
+    elicit: true
+    sections:
+      - id: campaign-basics
+        title: Campaign Basics
+        template: |
+          **Campaign Name**: {{campaign_name}}
+          **Campaign Type**: {{campaign_type}}
+          **Business Type**: {{business_type}}
+          **Campaign Duration**: {{start_date}} to {{end_date}}
+          **Total Budget**: ${{total_budget}}
+          **Primary Goal**: {{primary_goal}}
+
+      - id: objectives
+        title: Campaign Objectives
+        template: |
+          **Primary Objective**: {{primary_objective}}
+          **Secondary Objectives**:
+          {{#secondary_objectives}}
+          - {{objective}}
+          {{/secondary_objectives}}
+
+          **Success Metrics**:
+          {{#success_metrics}}
+          - {{metric}}: {{target_value}} (Current: {{baseline_value}})
+          {{/success_metrics}}
+
+  - id: target-audience
+    title: Target Audience & Segmentation
+    instruction: |
+      Define the target audience segments and their characteristics for this campaign.
+    elicit: true
+    sections:
+      - id: primary-audience
+        title: Primary Audience
+        template: |
+          **Demographic Profile**:
+          - Age: {{age_range}}
+          - Gender: {{gender_split}}
+          - Income: {{income_range}}
+          - Location: {{location}}
+          - Education: {{education_level}}
+
+          **Psychographic Profile**:
+          - Interests: {{interests}}
+          - Values: {{values}}
+          - Lifestyle: {{lifestyle}}
+          - Pain Points: {{pain_points}}
+
+          **Behavioral Profile**:
+          - Purchase Behavior: {{purchase_behavior}}
+          - Digital Behavior: {{digital_behavior}}
+          - Brand Affinity: {{brand_affinity}}
+
+      - id: audience-segments
+        title: Audience Segments
+        template: |
+          {{#audience_segments}}
+          **Segment {{segment_number}}: {{segment_name}}**
+          - Size: {{segment_size}}
+          - Budget Allocation: {{budget_percentage}}%
+          - Key Characteristics: {{characteristics}}
+          - Messaging Focus: {{messaging_focus}}
+          {{/audience_segments}}
+
+  - id: channel-strategy
+    title: Channel Strategy & Budget Allocation
+    instruction: |
+      Define which channels to use and how to allocate budget across them.
+    elicit: true
+    sections:
+      - id: channel-selection
+        title: Channel Selection
+        template: |
+          **Primary Channels**:
+          {{#primary_channels}}
+          - **{{channel_name}}**: {{budget_allocation}}% (${{{channel_budget}}})
+            - Rationale: {{rationale}}
+            - Expected ROAS: {{expected_roas}}
+            - Target Metrics: {{target_metrics}}
+          {{/primary_channels}}
+
+          **Secondary Channels**:
+          {{#secondary_channels}}
+          - **{{channel_name}}**: {{budget_allocation}}% (${{{channel_budget}}})
+            - Rationale: {{rationale}}
+          {{/secondary_channels}}
+
+      - id: platform-strategy
+        title: Platform-Specific Strategy
+        template: |
+          {{#platforms}}
+          **{{platform_name}}**:
+          - Campaign Type: {{campaign_type}}
+          - Targeting Strategy: {{targeting_strategy}}
+          - Bidding Strategy: {{bidding_strategy}}
+          - Daily Budget: ${{daily_budget}}
+          - Expected Results: {{expected_results}}
+          {{/platforms}}
+
+  - id: creative-strategy
+    title: Creative Strategy & Assets
+    instruction: |
+      Define the creative approach and required assets for the campaign.
+    elicit: true
+    sections:
+      - id: creative-concept
+        title: Creative Concept
+        template: |
+          **Creative Theme**: {{creative_theme}}
+          **Key Message**: {{key_message}}
+          **Visual Style**: {{visual_style}}
+          **Tone of Voice**: {{tone_of_voice}}
+          **Call-to-Action**: {{call_to_action}}
+
+      - id: asset-requirements
+        title: Required Assets
+        template: |
+          **Static Images**:
+          {{#static_images}}
+          - {{asset_name}}: {{dimensions}} ({{platform}})
+          {{/static_images}}
+
+          **Video Assets**:
+          {{#video_assets}}
+          - {{asset_name}}: {{duration}} ({{platform}})
+          {{/video_assets}}
+
+          **Copy Variations**:
+          {{#copy_variations}}
+          - {{copy_type}}: {{character_limit}} ({{platform}})
+          {{/copy_variations}}
+
+  - id: implementation-plan
+    title: Implementation Plan & Timeline
+    instruction: |
+      Create a detailed timeline for campaign setup, launch, and optimization.
+    elicit: true
+    sections:
+      - id: campaign-timeline
+        title: Campaign Timeline
+        template: |
+          **Pre-Launch Phase** ({{pre_launch_duration}}):
+          {{#pre_launch_tasks}}
+          - {{task}}: {{due_date}} (Owner: {{owner}})
+          {{/pre_launch_tasks}}
+
+          **Launch Phase** ({{launch_date}}):
+          {{#launch_tasks}}
+          - {{task}}: {{time}} (Owner: {{owner}})
+          {{/launch_tasks}}
+
+          **Optimization Phase** (Ongoing):
+          {{#optimization_tasks}}
+          - {{task}}: {{frequency}} (Owner: {{owner}})
+          {{/optimization_tasks}}
+
+      - id: testing-plan
+        title: A/B Testing Plan
+        template: |
+          **Test 1: {{test_name}}**
+          - Hypothesis: {{hypothesis}}
+          - Variables: {{variables}}
+          - Success Metric: {{success_metric}}
+          - Duration: {{test_duration}}
+
+          {{#additional_tests}}
+          **Test {{test_number}}: {{test_name}}**
+          - Hypothesis: {{hypothesis}}
+          - Variables: {{variables}}
+          - Success Metric: {{success_metric}}
+          - Duration: {{test_duration}}
+          {{/additional_tests}}
+
+  - id: measurement-plan
+    title: Measurement & Optimization Plan
+    instruction: |
+      Define how campaign performance will be measured and optimized.
+    elicit: true
+    sections:
+      - id: tracking-setup
+        title: Tracking & Attribution Setup
+        template: |
+          **Conversion Tracking**:
+          {{#conversion_events}}
+          - {{event_name}}: {{tracking_method}}
+          {{/conversion_events}}
+
+          **Attribution Model**: {{attribution_model}}
+          **UTM Parameters**: {{utm_strategy}}
+          **Pixel Setup**: {{pixel_requirements}}
+
+      - id: reporting-schedule
+        title: Reporting Schedule
+        template: |
+          **Daily Monitoring**:
+          {{#daily_metrics}}
+          - {{metric}}: {{threshold}}
+          {{/daily_metrics}}
+
+          **Weekly Reports**:
+          {{#weekly_metrics}}
+          - {{metric}}: {{target}}
+          {{/weekly_metrics}}
+
+          **Optimization Triggers**:
+          {{#optimization_triggers}}
+          - If {{condition}}, then {{action}}
+          {{/optimization_triggers}}
+
+      - id: success-criteria
+        title: Success Criteria & KPIs
+        template: |
+          **Primary KPIs**:
+          {{#primary_kpis}}
+          - {{kpi}}: {{target}} (Minimum: {{minimum_acceptable}})
+          {{/primary_kpis}}
+
+          **Secondary KPIs**:
+          {{#secondary_kpis}}
+          - {{kpi}}: {{target}}
+          {{/secondary_kpis}}
+
+          **Campaign Success Definition**: {{success_definition}}
+          **Failure Criteria**: {{failure_criteria}}

@@ -1,0 +1,274 @@
+template:
+  id: design-brief-template-v1
+  name: Marketing Design Brief
+  version: 1.0
+  output:
+    format: markdown
+    filename: design-brief.md
+    title: "{{project_name}} Design Brief"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: project-overview
+    title: Project Overview
+    instruction: |
+      Define the core elements of the design project including objectives,
+      scope, and deliverables.
+    elicit: true
+    sections:
+      - id: project-basics
+        title: Project Basics
+        template: |
+          **Project Name**: {{project_name}}
+          **Project Type**: {{project_type}}
+          **Campaign/Initiative**: {{campaign_name}}
+          **Business Type**: {{business_type}}
+          **Timeline**: {{start_date}} to {{delivery_date}}
+          **Priority Level**: {{priority_level}}
+          **Budget**: ${{design_budget}}
+
+      - id: design-objectives
+        title: Design Objectives
+        template: |
+          **Primary Objective**: {{primary_objective}}
+          **Secondary Objectives**:
+          {{#secondary_objectives}}
+          - {{objective}}
+          {{/secondary_objectives}}
+
+          **Success Metrics**:
+          {{#success_metrics}}
+          - {{metric}}: {{target_value}}
+          {{/success_metrics}}
+
+          **Business Impact Goal**: {{business_impact_goal}}
+
+  - id: brand-context
+    title: Brand Context & Guidelines
+    instruction: |
+      Establish the brand context and visual guidelines for the project.
+    elicit: true
+    sections:
+      - id: brand-foundation
+        title: Brand Foundation
+        template: |
+          **Brand Personality**: {{brand_personality}}
+          **Brand Voice**: {{brand_voice}}
+          **Brand Values**: {{brand_values}}
+          **Brand Positioning**: {{brand_positioning}}
+
+      - id: visual-guidelines
+        title: Visual Guidelines
+        template: |
+          **Primary Colors**:
+          {{#primary_colors}}
+          - {{color_name}}: {{hex_code}} ({{usage_note}})
+          {{/primary_colors}}
+
+          **Secondary Colors**:
+          {{#secondary_colors}}
+          - {{color_name}}: {{hex_code}} ({{usage_note}})
+          {{/secondary_colors}}
+
+          **Typography**:
+          - Primary Font: {{primary_font}}
+          - Secondary Font: {{secondary_font}}
+          - Font Hierarchy: {{font_hierarchy}}
+
+          **Logo Usage**: {{logo_usage_guidelines}}
+          **Visual Style**: {{visual_style_description}}
+
+  - id: target-audience
+    title: Target Audience
+    instruction: |
+      Define the specific audience this design needs to resonate with.
+    elicit: true
+    sections:
+      - id: audience-profile
+        title: Audience Profile
+        template: |
+          **Primary Audience**: {{primary_audience}}
+          **Demographics**:
+          - Age: {{age_range}}
+          - Gender: {{gender_split}}
+          - Income: {{income_range}}
+          - Location: {{location}}
+          - Education: {{education_level}}
+
+          **Psychographics**:
+          - Interests: {{interests}}
+          - Values: {{values}}
+          - Lifestyle: {{lifestyle}}
+          - Pain Points: {{pain_points}}
+
+          **Digital Behavior**:
+          - Preferred Platforms: {{preferred_platforms}}
+          - Device Usage: {{device_usage}}
+          - Content Preferences: {{content_preferences}}
+
+      - id: user-journey
+        title: User Journey Context
+        template: |
+          **Stage in Journey**: {{journey_stage}}
+          **User Intent**: {{user_intent}}
+          **Emotional State**: {{emotional_state}}
+          **Previous Touchpoints**: {{previous_touchpoints}}
+          **Next Expected Action**: {{next_action}}
+
+  - id: creative-direction
+    title: Creative Direction
+    instruction: |
+      Define the creative approach and visual direction for the project.
+    elicit: true
+    sections:
+      - id: creative-concept
+        title: Creative Concept
+        template: |
+          **Creative Theme**: {{creative_theme}}
+          **Key Message**: {{key_message}}
+          **Emotional Tone**: {{emotional_tone}}
+          **Visual Mood**: {{visual_mood}}
+          **Style References**: {{style_references}}
+
+      - id: messaging-content
+        title: Messaging & Content
+        template: |
+          **Headlines**:
+          {{#headlines}}
+          - {{headline_type}}: "{{headline_text}}"
+          {{/headlines}}
+
+          **Body Copy**: {{body_copy}}
+          **Call-to-Action**: {{call_to_action}}
+          **Supporting Text**: {{supporting_text}}
+          **Legal/Disclaimers**: {{legal_text}}
+
+  - id: technical-requirements
+    title: Technical Requirements & Specifications
+    instruction: |
+      Define the technical specifications and platform requirements.
+    elicit: true
+    sections:
+      - id: deliverables
+        title: Required Deliverables
+        template: |
+          {{#deliverables}}
+          **{{deliverable_name}}**:
+          - Dimensions: {{dimensions}}
+          - Format: {{file_format}}
+          - Platform: {{platform}}
+          - Specifications: {{specifications}}
+          - Quantity: {{quantity}}
+          {{/deliverables}}
+
+      - id: platform-specs
+        title: Platform-Specific Requirements
+        template: |
+          {{#platforms}}
+          **{{platform_name}}**:
+          - Image Specs: {{image_specs}}
+          - Text Limits: {{text_limits}}
+          - Aspect Ratios: {{aspect_ratios}}
+          - File Size Limits: {{file_size_limits}}
+          - Special Requirements: {{special_requirements}}
+          {{/platforms}}
+
+      - id: accessibility
+        title: Accessibility Requirements
+        template: |
+          **Color Contrast**: {{contrast_requirements}}
+          **Text Readability**: {{readability_requirements}}
+          **Alt Text Required**: {{alt_text_required}}
+          **Screen Reader Compatibility**: {{screen_reader_requirements}}
+          **Other Accessibility Notes**: {{accessibility_notes}}
+
+  - id: testing-optimization
+    title: Testing & Optimization Plan
+    instruction: |
+      Define how the design will be tested and optimized.
+    elicit: true
+    sections:
+      - id: ab-test-plan
+        title: A/B Testing Plan
+        template: |
+          **Test Hypothesis**: {{test_hypothesis}}
+          **Variables to Test**:
+          {{#test_variables}}
+          - {{variable_name}}: {{variable_description}}
+          {{/test_variables}}
+
+          **Success Metric**: {{success_metric}}
+          **Test Duration**: {{test_duration}}
+          **Minimum Sample Size**: {{sample_size}}
+
+      - id: variation-requirements
+        title: Design Variations
+        template: |
+          **Number of Variations**: {{number_of_variations}}
+          **Variation Differences**:
+          {{#variations}}
+          - **Variation {{variation_number}}**: {{variation_description}}
+          {{/variations}}
+
+          **Common Elements**: {{common_elements}}
+          **Variable Elements**: {{variable_elements}}
+
+  - id: approval-process
+    title: Approval Process & Timeline
+    instruction: |
+      Define the review and approval process with clear timelines.
+    elicit: true
+    sections:
+      - id: review-stages
+        title: Review Stages
+        template: |
+          {{#review_stages}}
+          **Stage {{stage_number}}: {{stage_name}}**
+          - Reviewers: {{reviewers}}
+          - Timeline: {{timeline}}
+          - Deliverable: {{deliverable}}
+          - Approval Criteria: {{approval_criteria}}
+          {{/review_stages}}
+
+      - id: stakeholders
+        title: Key Stakeholders
+        template: |
+          **Primary Stakeholders**:
+          {{#primary_stakeholders}}
+          - {{name}}: {{role}} ({{contact_info}})
+          {{/primary_stakeholders}}
+
+          **Secondary Stakeholders**:
+          {{#secondary_stakeholders}}
+          - {{name}}: {{role}} ({{contact_info}})
+          {{/secondary_stakeholders}}
+
+          **Final Approver**: {{final_approver}}
+          **Escalation Contact**: {{escalation_contact}}
+
+  - id: assets-resources
+    title: Assets & Resources
+    instruction: |
+      List all available assets and resources for the project.
+    template: |
+      **Existing Assets**:
+      {{#existing_assets}}
+      - {{asset_name}}: {{asset_location}} ({{asset_format}})
+      {{/existing_assets}}
+
+      **Brand Assets**:
+      {{#brand_assets}}
+      - {{asset_name}}: {{asset_location}}
+      {{/brand_assets}}
+
+      **Stock Photography/Video Budget**: ${{stock_budget}}
+      **Photography Requirements**: {{photography_requirements}}
+      **Copywriting Status**: {{copywriting_status}}
+
+      **Inspiration/References**:
+      {{#inspiration_references}}
+      - {{reference_name}}: {{reference_link}} ({{reference_note}})
+      {{/inspiration_references}}

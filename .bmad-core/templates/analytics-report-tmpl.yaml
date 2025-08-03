@@ -1,0 +1,254 @@
+template:
+  id: analytics-report-template-v1
+  name: Marketing Analytics Report
+  version: 1.0
+  output:
+    format: markdown
+    filename: analytics-report.md
+    title: "{{report_name}} - {{report_period}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: executive-summary
+    title: Executive Summary
+    instruction: |
+      Provide a high-level overview of key findings and recommendations.
+      This should be digestible for stakeholders who need quick insights.
+    elicit: true
+    template: |
+      **Report Period**: {{report_period}}
+      **Report Type**: {{report_type}}
+      **Business Type**: {{business_type}}
+
+      **Key Highlights**:
+      {{#key_highlights}}
+      - {{highlight}}
+      {{/key_highlights}}
+
+      **Primary Recommendations**:
+      {{#primary_recommendations}}
+      - {{recommendation}} (Impact: {{impact_level}})
+      {{/primary_recommendations}}
+
+  - id: performance-overview
+    title: Performance Overview
+    instruction: |
+      Present the core marketing metrics and their performance against targets.
+    elicit: true
+    sections:
+      - id: primary-metrics
+        title: Primary KPIs
+        template: |
+          {{#primary_kpis}}
+          **{{metric_name}}**:
+          - Current Period: {{current_value}} {{unit}}
+          - Previous Period: {{previous_value}} {{unit}}
+          - Change: {{change_percentage}}% ({{change_direction}})
+          - Target: {{target_value}} {{unit}}
+          - Status: {{status}}
+          {{/primary_kpis}}
+
+      - id: secondary-metrics
+        title: Secondary Metrics
+        template: |
+          | Metric | Current | Previous | Change | Target | Status |
+          |--------|---------|----------|--------|--------|--------|
+          {{#secondary_metrics}}
+          | {{metric_name}} | {{current_value}} | {{previous_value}} | {{change_percentage}}% | {{target_value}} | {{status}} |
+          {{/secondary_metrics}}
+
+  - id: channel-performance
+    title: Channel Performance Analysis
+    instruction: |
+      Analyze performance across different marketing channels.
+    elicit: true
+    sections:
+      - id: channel-overview
+        title: Channel Overview
+        template: |
+          **Total Marketing Spend**: ${{total_spend}}
+          **Overall ROAS**: {{overall_roas}}
+          **Overall CAC**: ${{overall_cac}}
+
+          **Channel Performance**:
+          {{#channels}}
+          **{{channel_name}}**:
+          - Spend: ${{spend}} ({{spend_percentage}}% of total)
+          - ROAS: {{roas}}
+          - CAC: ${{cac}}
+          - Conversions: {{conversions}}
+          - Performance vs Target: {{performance_status}}
+          {{/channels}}
+
+      - id: channel-insights
+        title: Channel Insights
+        template: |
+          {{#channel_insights}}
+          **{{channel_name}}**:
+          - **Top Insight**: {{top_insight}}
+          - **Optimization Opportunity**: {{optimization_opportunity}}
+          - **Recommended Action**: {{recommended_action}}
+          {{/channel_insights}}
+
+  - id: audience-analysis
+    title: Audience & Segmentation Analysis
+    instruction: |
+      Analyze audience performance and segmentation insights.
+    elicit: true
+    sections:
+      - id: audience-performance
+        title: Audience Segment Performance
+        template: |
+          {{#audience_segments}}
+          **{{segment_name}}**:
+          - Size: {{segment_size}} ({{percentage_of_total}}% of audience)
+          - Conversion Rate: {{conversion_rate}}%
+          - Average Order Value: ${{aov}}
+          - Customer Lifetime Value: ${{clv}}
+          - CAC: ${{cac}}
+          - Performance Score: {{performance_score}}/10
+          {{/audience_segments}}
+
+      - id: demographic-insights
+        title: Demographic Insights
+        template: |
+          **Age Distribution**:
+          {{#age_groups}}
+          - {{age_range}}: {{percentage}}% (Performance: {{performance_indicator}})
+          {{/age_groups}}
+
+          **Geographic Performance**:
+          {{#geographic_segments}}
+          - {{location}}: {{performance_metric}} ({{performance_indicator}})
+          {{/geographic_segments}}
+
+          **Device Performance**:
+          {{#device_types}}
+          - {{device}}: {{conversion_rate}}% conversion rate
+          {{/device_types}}
+
+  - id: conversion-analysis
+    title: Conversion Funnel Analysis
+    instruction: |
+      Analyze the conversion funnel and identify optimization opportunities.
+    elicit: true
+    sections:
+      - id: funnel-performance
+        title: Funnel Performance
+        template: |
+          **Conversion Funnel**:
+          {{#funnel_stages}}
+          {{stage_number}}. **{{stage_name}}**: {{value}} {{unit}} ({{conversion_rate}}% from previous stage)
+          {{/funnel_stages}}
+
+          **Overall Conversion Rate**: {{overall_conversion_rate}}%
+          **Biggest Drop-off**: {{biggest_dropoff_stage}} ({{dropoff_percentage}}% loss)
+
+      - id: funnel-insights
+        title: Funnel Optimization Insights
+        template: |
+          **Top Opportunities**:
+          {{#optimization_opportunities}}
+          - **{{stage_name}}**: {{opportunity_description}}
+            - Potential Impact: {{potential_impact}}
+            - Effort Level: {{effort_level}}
+            - Recommended Action: {{recommended_action}}
+          {{/optimization_opportunities}}
+
+  - id: attribution-analysis
+    title: Attribution & Customer Journey Analysis
+    instruction: |
+      Analyze customer journeys and multi-touch attribution.
+    elicit: true
+    sections:
+      - id: customer-journey
+        title: Customer Journey Insights
+        template: |
+          **Average Touchpoints to Conversion**: {{avg_touchpoints}}
+          **Average Journey Length**: {{avg_journey_days}} days
+
+          **Top Conversion Paths**:
+          {{#conversion_paths}}
+          {{path_rank}}. {{path_description}} ({{percentage}}% of conversions)
+          {{/conversion_paths}}
+
+      - id: attribution-model
+        title: Attribution Model Results
+        template: |
+          **Attribution Model Used**: {{attribution_model}}
+
+          **Channel Attribution**:
+          {{#channel_attribution}}
+          - **{{channel_name}}**: {{attributed_conversions}} conversions ({{attribution_percentage}}%)
+          {{/channel_attribution}}
+
+          **First vs Last Touch Comparison**:
+          {{#attribution_comparison}}
+          - **{{channel_name}}**: First Touch {{first_touch_percentage}}% | Last Touch {{last_touch_percentage}}%
+          {{/attribution_comparison}}
+
+  - id: recommendations
+    title: Recommendations & Action Items
+    instruction: |
+      Provide specific, actionable recommendations based on the analysis.
+    elicit: true
+    sections:
+      - id: immediate-actions
+        title: Immediate Actions (Next 30 Days)
+        template: |
+          {{#immediate_actions}}
+          **{{action_title}}**:
+          - Description: {{description}}
+          - Expected Impact: {{expected_impact}}
+          - Owner: {{owner}}
+          - Due Date: {{due_date}}
+          - Success Metric: {{success_metric}}
+          {{/immediate_actions}}
+
+      - id: strategic-recommendations
+        title: Strategic Recommendations (Next 90 Days)
+        template: |
+          {{#strategic_recommendations}}
+          **{{recommendation_title}}**:
+          - Description: {{description}}
+          - Business Impact: {{business_impact}}
+          - Resource Requirements: {{resource_requirements}}
+          - Timeline: {{timeline}}
+          - Success Metrics: {{success_metrics}}
+          {{/strategic_recommendations}}
+
+      - id: testing-opportunities
+        title: Testing & Optimization Opportunities
+        template: |
+          {{#testing_opportunities}}
+          **Test {{test_number}}: {{test_name}}**:
+          - Hypothesis: {{hypothesis}}
+          - Test Duration: {{duration}}
+          - Success Metric: {{success_metric}}
+          - Potential Impact: {{potential_impact}}
+          {{/testing_opportunities}}
+
+  - id: appendix
+    title: Appendix & Methodology
+    instruction: |
+      Include technical details, data sources, and methodology for transparency.
+    template: |
+      **Data Sources**:
+      {{#data_sources}}
+      - {{source_name}}: {{date_range}} ({{data_quality_note}})
+      {{/data_sources}}
+
+      **Methodology Notes**:
+      {{#methodology_notes}}
+      - {{note}}
+      {{/methodology_notes}}
+
+      **Known Limitations**:
+      {{#limitations}}
+      - {{limitation}}
+      {{/limitations}}
+
+      **Next Report Date**: {{next_report_date}}

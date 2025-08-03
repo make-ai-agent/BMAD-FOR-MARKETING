@@ -1,0 +1,177 @@
+template:
+  id: brand-strategy-template-v1
+  name: Brand Strategy Development
+  version: 1.0
+  output:
+    format: markdown
+    filename: brand-strategy.md
+    title: "{{brand_name}} Brand Strategy"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: brand-overview
+    title: Brand Overview & Context
+    instruction: |
+      Gather comprehensive information about the brand, its current state, and business objectives.
+      This forms the foundation for all strategic decisions.
+    elicit: true
+    sections:
+      - id: brand-basics
+        title: Brand Basics
+        template: |
+          **Brand Name**: {{brand_name}}
+          **Industry**: {{industry}}
+          **Business Type**: {{business_type}}
+          **Company Size**: {{company_size}}
+          **Geographic Markets**: {{geographic_markets}}
+
+      - id: current-positioning
+        title: Current Brand Positioning
+        instruction: Describe how the brand currently positions itself in the market
+        template: |
+          **Current Mission**: {{current_mission}}
+          **Current Vision**: {{current_vision}}
+          **Current Value Proposition**: {{current_value_prop}}
+          **Key Differentiators**: {{key_differentiators}}
+
+  - id: market-analysis
+    title: Market & Competitive Analysis
+    instruction: |
+      Analyze the market landscape and competitive environment to identify opportunities
+      and challenges for brand positioning.
+    elicit: true
+    sections:
+      - id: target-market
+        title: Target Market Definition
+        template: |
+          **Primary Target Market**: {{primary_target}}
+          **Secondary Target Market**: {{secondary_target}}
+          **Market Size**: {{market_size}}
+          **Growth Rate**: {{growth_rate}}
+
+      - id: competitive-landscape
+        title: Competitive Landscape
+        instruction: Identify and analyze key competitors and their positioning
+        template: |
+          **Direct Competitors**: 
+          {{#competitors}}
+          - **{{name}}**: {{positioning}} - {{strengths_weaknesses}}
+          {{/competitors}}
+
+          **Competitive Advantages**: {{competitive_advantages}}
+          **Competitive Gaps**: {{competitive_gaps}}
+
+  - id: brand-strategy
+    title: Brand Strategy Framework
+    instruction: |
+      Develop the core brand strategy including positioning, messaging, and personality.
+      This should be based on market analysis and business objectives.
+    elicit: true
+    sections:
+      - id: brand-positioning
+        title: Brand Positioning Statement
+        template: |
+          **For** {{target_audience}}
+          **Who** {{target_need}}
+          **{{brand_name}} is** {{category}}
+          **That** {{benefit}}
+          **Unlike** {{competition}}
+          **Because** {{reason_to_believe}}
+
+      - id: brand-personality
+        title: Brand Personality & Voice
+        template: |
+          **Brand Personality Traits**: 
+          {{#personality_traits}}
+          - {{trait}}: {{description}}
+          {{/personality_traits}}
+
+          **Brand Voice**: {{brand_voice}}
+          **Tone Guidelines**: 
+          {{#tone_guidelines}}
+          - **{{situation}}**: {{tone_description}}
+          {{/tone_guidelines}}
+
+      - id: messaging-framework
+        title: Core Messaging Framework
+        template: |
+          **Primary Message**: {{primary_message}}
+          **Supporting Messages**:
+          {{#supporting_messages}}
+          - {{message}}
+          {{/supporting_messages}}
+
+          **Proof Points**:
+          {{#proof_points}}
+          - {{proof_point}}
+          {{/proof_points}}
+
+  - id: implementation
+    title: Implementation Strategy
+    instruction: |
+      Define how the brand strategy will be implemented across touchpoints and channels.
+    elicit: true
+    sections:
+      - id: brand-touchpoints
+        title: Brand Touchpoints
+        template: |
+          **Digital Touchpoints**:
+          {{#digital_touchpoints}}
+          - {{touchpoint}}: {{strategy}}
+          {{/digital_touchpoints}}
+
+          **Physical Touchpoints**:
+          {{#physical_touchpoints}}
+          - {{touchpoint}}: {{strategy}}
+          {{/physical_touchpoints}}
+
+      - id: content-themes
+        title: Content Themes & Pillars
+        template: |
+          **Content Pillars**:
+          {{#content_pillars}}
+          - **{{pillar_name}}**: {{description}} ({{percentage}}% of content)
+          {{/content_pillars}}
+
+          **Seasonal Themes**: {{seasonal_themes}}
+
+      - id: success-metrics
+        title: Success Metrics
+        template: |
+          **Brand Awareness Metrics**:
+          {{#awareness_metrics}}
+          - {{metric}}: Current: {{current_value}}, Target: {{target_value}}
+          {{/awareness_metrics}}
+
+          **Engagement Metrics**:
+          {{#engagement_metrics}}
+          - {{metric}}: Current: {{current_value}}, Target: {{target_value}}
+          {{/engagement_metrics}}
+
+  - id: action-plan
+    title: 90-Day Action Plan
+    instruction: Create a concrete 90-day implementation plan with specific actions and timelines
+    template: |
+      **Month 1 (Foundation)**:
+      {{#month1_actions}}
+      - Week {{week}}: {{action}} (Owner: {{owner}})
+      {{/month1_actions}}
+
+      **Month 2 (Implementation)**:
+      {{#month2_actions}}
+      - Week {{week}}: {{action}} (Owner: {{owner}})
+      {{/month2_actions}}
+
+      **Month 3 (Optimization)**:
+      {{#month3_actions}}
+      - Week {{week}}: {{action}} (Owner: {{owner}})
+      {{/month3_actions}}
+
+      **Budget Requirements**: {{budget_requirements}}
+      **Success Milestones**: 
+      {{#milestones}}
+      - {{milestone}} (Target Date: {{target_date}})
+      {{/milestones}}
