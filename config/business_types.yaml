@@ -1,0 +1,390 @@
+# config/business_types.yaml
+# Multi-business type configurations for the BMAD framework
+
+# Business Type Analysis Framework
+# Use this section to help identify which business type best fits a new company
+business_type_analysis:
+  key_questions:
+    revenue_model:
+      - "How does the company primarily make money?"
+      - "Options: subscription, one-time purchase, transaction fees, advertising, freemium, commission"
+
+    customer_type:
+      - "Who are the primary customers?"
+      - "Options: B2B (businesses), B2C (consumers), B2B2C (businesses serving consumers)"
+
+    purchase_cycle:
+      - "How long is the typical sales cycle?"
+      - "Options: impulse (minutes), considered (days-weeks), complex (months)"
+
+    key_conversion_events:
+      - "What are the most important actions customers take?"
+      - "Examples: trial signup, purchase, subscription, lead generation"
+
+    primary_channels:
+      - "Where do customers typically discover and purchase?"
+      - "Examples: search, social media, word of mouth, sales team, marketplace"
+
+  mapping_framework:
+    high_volume_low_value: "Consider: ecommerce, mobile_apps, or saas_b2c"
+    low_volume_high_value: "Consider: b2b_services, b2b_saas, or professional_services"
+    platform_based: "Consider: marketplace, b2b_marketplace"
+    content_driven: "Consider: media_content, education"
+    location_dependent: "Consider: local_business"
+    physical_products: "Consider: ecommerce, subscription_commerce, or retail"
+
+business_types:
+  # Existing types (enhanced)
+  saas_b2b:
+    name: "SaaS B2B"
+    description: "Software-as-a-Service targeting business customers"
+    primary_metrics:
+      - "Monthly Recurring Revenue (MRR)"
+      - "Customer Acquisition Cost (CAC)"
+      - "Customer Lifetime Value (CLV)"
+      - "Churn Rate"
+      - "Product Qualified Leads (PQL)"
+      - "Net Revenue Retention (NRR)"
+
+    required_integrations:
+      - "Google Analytics 4"
+      - "Marketing automation platform (HubSpot, Marketo)"
+      - "CRM system (Salesforce, Pipedrive)"
+      - "Product analytics (Mixpanel, Amplitude)"
+
+    custom_prompts:
+      brand_marketer:
+        - "Analyze our SaaS trial-to-paid conversion funnel and identify content gaps that could improve activation rates."
+        - "Create a thought leadership content strategy for our target personas: [PERSONA_LIST]."
+        - "Develop case studies showcasing ROI for our enterprise customers."
+
+      media_buyer:
+        - "Optimize our LinkedIn and Google Ads spend to reduce CAC below $[TARGET_CAC] for enterprise leads."
+        - "Analyze which lead magnets are driving the highest quality MQLs for our SaaS product."
+        - "Test different nurture sequences for trial users to improve conversion rates."
+
+      analyst:
+        - "Calculate the payback period for each acquisition channel and recommend budget allocation."
+        - "Forecast MRR growth based on current acquisition and churn trends."
+        - "Analyze user engagement patterns to predict churn risk."
+
+      designer:
+        - "Design landing pages optimized for SaaS trial sign-ups with clear value propositions."
+        - "Create email templates for our nurture sequences targeting trial users."
+        - "Design in-app onboarding flows to improve user activation."
+
+  saas_b2c:
+    name: "SaaS B2C"
+    description: "Software-as-a-Service targeting individual consumers"
+    primary_metrics:
+      - "Monthly Active Users (MAU)"
+      - "Customer Acquisition Cost (CAC)"
+      - "Lifetime Value (LTV)"
+      - "Conversion Rate (Free to Paid)"
+      - "Retention Rate"
+      - "Viral Coefficient"
+
+    required_integrations:
+      - "Google Analytics 4"
+      - "App store analytics (iOS/Android)"
+      - "Email marketing platforms"
+      - "Social media advertising platforms"
+      - "Product analytics (Mixpanel, Amplitude)"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create viral marketing campaigns that encourage user-generated content and referrals."
+        - "Develop content that showcases lifestyle benefits of our app to target demographics."
+
+      media_buyer:
+        - "Optimize Facebook and Instagram campaigns to acquire users with high LTV potential."
+        - "Test different app store optimization strategies to improve organic downloads."
+
+      analyst:
+        - "Analyze user behavior patterns to identify the optimal time to prompt for premium upgrades."
+        - "Track cohort retention and identify features that drive long-term engagement."
+
+      designer:
+        - "Design freemium app experiences that demonstrate value while encouraging upgrades."
+        - "Create social media content templates that users want to share."
+
+  ecommerce:
+    name: "E-commerce"
+    description: "Online retail selling physical or digital products"
+    primary_metrics:
+      - "Return on Ad Spend (ROAS)"
+      - "Average Order Value (AOV)"
+      - "Conversion Rate"
+      - "Cart Abandonment Rate"
+      - "Customer Lifetime Value (CLV)"
+      - "Repeat Purchase Rate"
+
+    required_integrations:
+      - "Google Analytics 4 Enhanced Ecommerce"
+      - "Shopify/WooCommerce data"
+      - "Email marketing platforms"
+      - "Social media advertising platforms"
+
+    custom_prompts:
+      brand_marketer:
+        - "Develop seasonal content calendars that align with our product launches and shopping seasons."
+        - "Create user-generated content campaigns to increase social proof and brand trust."
+        - "Design email sequences for cart abandonment recovery."
+
+      media_buyer:
+        - "Optimize Facebook and Google Shopping campaigns to achieve a ROAS of [TARGET_ROAS] or higher."
+        - "Test different audience segments for our retargeting campaigns to reduce cart abandonment."
+        - "Analyze performance across different product categories to optimize budget allocation."
+
+      analyst:
+        - "Analyze customer purchase patterns to identify cross-sell and upsell opportunities."
+        - "Track the customer journey from first touch to purchase across all channels."
+        - "Identify seasonal trends and forecast inventory needs."
+
+      designer:
+        - "Design product pages that maximize conversion rates with clear CTAs and social proof."
+        - "Create ad creatives for seasonal campaigns that align with our brand aesthetic."
+        - "Optimize checkout flow to reduce abandonment rates."
+
+  marketplace:
+    name: "Marketplace"
+    description: "Two-sided platforms connecting buyers and sellers"
+    primary_metrics:
+      - "Gross Merchandise Value (GMV)"
+      - "Take Rate (Commission %)"
+      - "Active Buyers"
+      - "Active Sellers"
+      - "Transaction Volume"
+      - "Marketplace Liquidity"
+
+    required_integrations:
+      - "Google Analytics 4"
+      - "Marketplace platform analytics"
+      - "Payment processor data"
+      - "Email marketing platforms"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create content strategies that build trust between buyers and sellers on our platform."
+        - "Develop campaigns that highlight success stories from both sides of the marketplace."
+
+      media_buyer:
+        - "Balance acquisition spend between buyer and seller campaigns to maintain marketplace equilibrium."
+        - "Test campaigns that drive high-quality sellers who will attract more buyers."
+
+      analyst:
+        - "Monitor marketplace liquidity and identify supply/demand imbalances."
+        - "Analyze transaction patterns to optimize commission structures."
+
+      designer:
+        - "Design user experiences that build trust and reduce friction for both buyers and sellers."
+        - "Create promotional materials that appeal to both sides of the marketplace."
+
+  mobile_apps:
+    name: "Mobile Apps"
+    description: "Mobile applications with freemium or paid models"
+    primary_metrics:
+      - "App Store Downloads"
+      - "Daily Active Users (DAU)"
+      - "In-App Purchase Revenue"
+      - "User Retention (D1, D7, D30)"
+      - "Average Revenue Per User (ARPU)"
+      - "Cost Per Install (CPI)"
+
+    required_integrations:
+      - "App Store Connect (iOS)"
+      - "Google Play Console (Android)"
+      - "Mobile attribution platforms (AppsFlyer, Adjust)"
+      - "In-app analytics (Firebase, Mixpanel)"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create app store optimization content that improves search rankings and conversion rates."
+        - "Develop influencer marketing campaigns targeting our core user demographics."
+
+      media_buyer:
+        - "Optimize user acquisition campaigns across Facebook, Google, and app install networks."
+        - "Test different creative formats to improve install-to-usage conversion rates."
+
+      analyst:
+        - "Analyze user progression through our app funnel to identify optimization opportunities."
+        - "Track cohort-based LTV to optimize user acquisition bidding strategies."
+
+      designer:
+        - "Design app store screenshots and videos that maximize conversion rates."
+        - "Create in-app experiences that drive engagement and monetization."
+
+  subscription_commerce:
+    name: "Subscription Commerce"
+    description: "Recurring delivery of physical products or services"
+    primary_metrics:
+      - "Monthly Recurring Revenue (MRR)"
+      - "Customer Acquisition Cost (CAC)"
+      - "Churn Rate"
+      - "Average Order Value (AOV)"
+      - "Customer Lifetime Value (CLV)"
+      - "Subscription Box Fill Rate"
+
+    required_integrations:
+      - "Subscription management platform"
+      - "Google Analytics 4"
+      - "Email marketing platforms"
+      - "Customer review platforms"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create unboxing experiences that encourage social sharing and referrals."
+        - "Develop content that showcases the convenience and value of our subscription model."
+
+      media_buyer:
+        - "Test different subscription offer structures (free trial vs. discount) to optimize LTV."
+        - "Optimize campaigns to attract subscribers with low churn probability."
+
+      analyst:
+        - "Analyze subscription lifecycle patterns to predict and prevent churn."
+        - "Track seasonality patterns to optimize inventory and marketing spend."
+
+      designer:
+        - "Design packaging and unboxing experiences that delight customers."
+        - "Create subscription landing pages that clearly communicate value and reduce friction."
+
+  media_content:
+    name: "Media & Content"
+    description: "Publishers, streaming services, and content platforms"
+    primary_metrics:
+      - "Monthly Active Users (MAU)"
+      - "Content Engagement Rate"
+      - "Subscription Conversion Rate"
+      - "Ad Revenue per User"
+      - "Content Consumption Time"
+      - "Subscriber Retention Rate"
+
+    required_integrations:
+      - "Google Analytics 4"
+      - "Content management system"
+      - "Email marketing platforms"
+      - "Social media management tools"
+      - "Video analytics platforms"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create content promotion strategies that maximize reach and engagement across channels."
+        - "Develop subscriber acquisition campaigns that highlight our unique content value."
+
+      media_buyer:
+        - "Optimize campaigns to drive content consumption and subscription conversions."
+        - "Test different content promotion strategies across social media platforms."
+
+      analyst:
+        - "Analyze content performance to identify topics and formats that drive highest engagement."
+        - "Track user journey from content discovery to subscription conversion."
+
+      designer:
+        - "Design content layouts and player experiences that maximize engagement time."
+        - "Create promotional graphics that effectively showcase our content library."
+
+  b2b_services:
+    name: "B2B Services"
+    description: "Professional services targeting business customers"
+    primary_metrics:
+      - "Lead Generation Cost"
+      - "Lead-to-Opportunity Conversion Rate"
+      - "Sales Cycle Length"
+      - "Customer Acquisition Cost (CAC)"
+      - "Pipeline Velocity"
+      - "Client Retention Rate"
+
+    required_integrations:
+      - "CRM system"
+      - "Marketing automation platform"
+      - "Website analytics"
+      - "Social media management tools"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create case studies and whitepapers that demonstrate our expertise in [SERVICE_AREA]."
+        - "Develop a content strategy that positions us as thought leaders in our industry."
+        - "Design client success stories that build credibility and trust."
+
+      media_buyer:
+        - "Optimize LinkedIn campaigns to generate high-quality leads for our [SERVICE_TYPE] services."
+        - "Test different lead magnets to improve our cost per qualified lead."
+        - "Develop account-based marketing campaigns targeting specific high-value prospects."
+
+      analyst:
+        - "Analyze which content types generate the most qualified leads for our sales team."
+        - "Track lead scoring effectiveness and recommend improvements to our qualification process."
+        - "Monitor sales cycle length to identify bottlenecks and optimization opportunities."
+
+      designer:
+        - "Design professional service pages that build trust and clearly communicate our value proposition."
+        - "Create downloadable resources that serve as effective lead magnets."
+        - "Develop proposal templates and sales materials that enhance our professional image."
+
+  local_business:
+    name: "Local Business"
+    description: "Location-based businesses serving local markets"
+    primary_metrics:
+      - "Local Search Rankings"
+      - "Store Visits"
+      - "Phone Calls Generated"
+      - "Online Reviews Score"
+      - "Local Conversion Rate"
+      - "Customer Retention Rate"
+
+    required_integrations:
+      - "Google My Business"
+      - "Local directory platforms"
+      - "Review management platforms"
+      - "Local advertising platforms"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create local community engagement strategies that build brand awareness."
+        - "Develop content that showcases our local expertise and community involvement."
+
+      media_buyer:
+        - "Optimize Google Ads local campaigns to drive store visits and phone calls."
+        - "Test different local targeting strategies to reach customers in our service area."
+
+      analyst:
+        - "Track local search performance and identify opportunities to improve visibility."
+        - "Analyze customer visit patterns to optimize staffing and inventory."
+
+      designer:
+        - "Design local marketing materials that resonate with our community."
+        - "Create Google My Business posts and local social media content."
+
+  education:
+    name: "Education & Training"
+    description: "Educational institutions and online learning platforms"
+    primary_metrics:
+      - "Student Enrollment"
+      - "Course Completion Rate"
+      - "Student Satisfaction Score"
+      - "Cost Per Enrollment"
+      - "Student Lifetime Value"
+      - "Course Engagement Rate"
+
+    required_integrations:
+      - "Learning Management System (LMS)"
+      - "Student information system"
+      - "Email marketing platforms"
+      - "Social media platforms"
+
+    custom_prompts:
+      brand_marketer:
+        - "Create educational content that demonstrates our expertise and attracts prospective students."
+        - "Develop success stories and testimonials from graduates to build credibility."
+
+      media_buyer:
+        - "Optimize campaigns to attract students who are likely to complete courses and succeed."
+        - "Test different educational content formats to improve enrollment conversion rates."
+
+      analyst:
+        - "Analyze student engagement patterns to identify factors that predict course completion."
+        - "Track student outcomes to measure the effectiveness of our educational programs."
+
+      designer:
+        - "Design course materials and learning experiences that maximize student engagement."
+        - "Create marketing materials that effectively communicate educational value and outcomes."
